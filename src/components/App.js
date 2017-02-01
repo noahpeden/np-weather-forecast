@@ -4,17 +4,23 @@ import Header from './Header';
 
 class App extends Component {
 
+  // getCurrentLocation(){
+  //   navigator.geolocation.getCurrentPosition((data) => {
+  //      this.props.fetchLocation(data)
+  //   }).then((data)=>{
+  //      console.log(data)
+  //   })
+  // }
   getCurrentLocation(){
     navigator.geolocation.getCurrentPosition((data) => {
-       this.props.fetchLocation(data)
-      // console.log(data)
-    }).then(()=>{
-      return this.getWeather()
+       this.props.fetchLocation(data);
+       setTimeout(this.getWeather(data), 500)
+       this.getWeather(data)
     })
   }
 
-  getWeather(){
-    console.log('pizzarat')
+  getWeather(data){
+    console.log(data)
   }
 
   componentDidMount(){
