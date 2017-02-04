@@ -1,30 +1,13 @@
 import * as actions from '../../src/actions'
 
-describe('actions', ()=> {
-  it('should create an action to add a todo', ()=> {
-    const text = "Find Tim"
-    const id = 0
-    const expectedReturn = {
-      type:'ADD_TODO',
-      text,
-      id
+describe('remove pinned city action', () => {
+  it('should return remove object', () => {
+    const index = 1
+    const expected = {
+      type: 'REMOVE_CITY',
+      index,
     }
-    expect(actions.addTodo(text, id)).toEqual(expectedReturn);
+
+    expect(actions.removeCity(index)).toEqual(expected)
   })
-//   it('should toggle todos',()=>{
-//     const id = 0
-//     let expected = {
-//       type:'TOGGLE_TODO',
-//       id,
-//     }
-//     expect(actions.toggleTodo(id)).toEqual(expected)
-//   })
-//   it('should set filter',()=>{
-//     const filter= 'hello'
-//     let expected = {
-//       type:'SET_FILTER',
-//       filter
-//     }
-//     expect(actions.setFilter(filter)).toEqual(expected)
-//   })
- })
+})
