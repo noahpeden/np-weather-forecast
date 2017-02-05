@@ -3,6 +3,7 @@ import {Link} from 'react-router'
 
 
 const CityCards = (props) => {
+
  const cities = props.cityWeather.map((city)=>{
       return (
         <div className='city-card'>
@@ -17,9 +18,15 @@ const CityCards = (props) => {
         </div>
       )
     })
+
     return(
-      <div>
+      <div className='cities'>
         {cities}
+        {(props.cityWeather.length < 3)?
+          <div className='city-card'>
+            <Link to="/settings">Add Another City</Link>
+          </div>
+          : null }
       </div>
     )
 }
