@@ -10,7 +10,7 @@ describe('actions', ()=> {
     const currently= 'hello'
     const extended= 'hello'
     const hourly= 'hello'
-    
+
     const expectedReturn = {
       type:'CURRENT_WEATHER',
       city,
@@ -21,5 +21,13 @@ describe('actions', ()=> {
     }
     expect(actions.currentWeather()).toEqual(expectedReturn);
   })
+  it.only('should create an action to remove pin', () => {
+  const index = []
+  const expectedAction = {
+   type: 'REMOVE_CITY',
+   index: []
+  }
+  expect(actions.removeCity(index)).toEqual(expectedAction)
+})
 
  })
