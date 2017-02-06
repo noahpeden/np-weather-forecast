@@ -88,9 +88,8 @@ button:hover {
 }
 
 .edit-cities{
-  display: flex;
-  justify-content: flex-end;
-  margin: 10px 50px;
+  display: inline;
+  margin-left: 80%;
 }
 
 .add-city-link{
