@@ -1,5 +1,3 @@
- // const RECEIVE_FORECAST = 'RECEIVE_FORECAST';
-
 export const currentWeather = (json) => {
   return {
     type: "CURRENT_WEATHER",

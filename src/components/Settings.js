@@ -12,7 +12,9 @@ constructor(){
 render(){
     const cities = this.props.cityWeather.map((city, index)=>{
          return (
-           <div className='edit-city'>
+
+           <div className='edit-city' key={city.id}>
+
              <ul>
                <button onClick={() => this.props.removeClickedCity(index)}>X</button> City: {city.city}
              </ul>
@@ -51,7 +53,9 @@ render(){
         <div className='city-settings'>
           {cities}
         </div>
-        <Link to="/">
+
+        <Link to="/" className='home-button'>
+
           <button>Home</button>
         </Link>
       </div>
