@@ -6,9 +6,9 @@ const Header = (props) => {
   let message = ""
 
   let now = moment().format('HH:mm')
-  let sunrise = moment.parseZone(`${props.sunrise.sunrise}`).local().format('HH:mm')
+  let sunrise = props.sunrise ? moment.parseZone(`${props.sunrise.sunrise}`).local().format('HH:mm') || moment().format('HH:mm'): moment().format('HH:mm')
   let midMorning = moment(sunrise, 'HH:mm:ss').add(2,'h').format('HH:mm')
-  let sunset = moment.parseZone(`${props.sunrise.sunset}`).local().format('HH:mm')
+  let sunset = props.sunrise ? moment.parseZone(`${props.sunrise.sunset}`).local().format('HH:mm') || moment().format('HH:mm') : moment().format('HH:mm')
   let lateAfternoon = moment(sunset, 'HH:mm:ss').subtract(2,'h').format('HH:mm')
   switch(true){
     case (sunrise < now && now < midMorning):
