@@ -22,6 +22,7 @@ class App extends Component {
     .then((response) => {
       return response.json() })
     .then((json) => {
+      console.log(json)
       this.props.fetchLocation(json) })
     .catch((error) => {
       console.log(error)
