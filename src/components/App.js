@@ -34,13 +34,6 @@ class App extends Component {
       return response.json() })
     .then((json) => {
       this.props.fetchSunriseSunset(json)})
-    .then(()=>{
-      let sunrise = moment.parseZone(`${this.props.sunrise.sunrise}`).local().format('HH:mm:ss')
-      let now = moment().format('HH:mm:ss')
-      let sunset = moment.parseZone(`${this.props.sunrise.sunset}`).local().format('HH:mm:ss')
-      if (now > sunrise && now < sunset){console.log("it's fuckin' daytime baby!")}
-      else (console.log("it's night now. time to shine."))
-    })
   }
 
   componentDidMount() {
@@ -75,18 +68,30 @@ class App extends Component {
         this.setState({newman: !this.state.newman})
       }
       this.setState({pushed: newArray});
-      console.log(this.state.pushed, this.state.secretCode)
     }
 
     render(){
       return (
-        <div className='app' tabIndex="0" onKeyUp={(e)=>this.konami(e)}>
-          {this.state.newman ? <img src="https://media.giphy.com/media/uOAXDA7ZeJJzW/giphy.gif"/> : null}
+        <div tabIndex="0" className="konami" onKeyUp={(e)=>this.konami(e)}>
+
+          {this.state.newman ?
+            <img src="https://media.giphy.com/media/uOAXDA7ZeJJzW/giphy.gif" className="newman"/>
+            : null
+          }
+
           <HeaderContainer />
-          <input value={this.state.zip} onChange={e => this.setState({zip: e.target.value})} placeholder="zip code" />
-          <button onClick={() => this.pinCity()}>Pin New City</button>
-            <CityCardsContainer />
-          <Link to="/settings">Edit Pinned Cities >> </Link>
+          <section className="new-city">
+            <input  value={this.state.zip}
+                    onChange={e => this.setState({zip: e.target.value})}
+                    placeholder="zip code"
+            />
+            <button onClick={() => this.pinCity()}>
+              Pin New City
+            </button>
+          </section>
+          <CityCardsContainer />
+          <Link to="/settings" className='edit-cities'>Edit Pinned Cities >> </Link>
+
         </div>
       )
     }
