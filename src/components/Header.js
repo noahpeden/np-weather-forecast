@@ -4,38 +4,40 @@ import moment from 'moment'
 
 const Header = (props) => {
   let message = ""
-  let now = moment().format('HH:mm:ss')
-  let sunrise = moment.parseZone(`${props.sunrise.sunrise}`).local().format('HH:mm:ss')
-  let midMorning = moment(sunrise, 'HH:mm:ss').add(2,'h').format('HH:mm:ss')
-  let sunset = moment.parseZone(`${props.sunrise.sunset}`).local().format('HH:mm:ss')
-  let lateAfternoon = moment(sunset, 'HH:mm:ss').subtract(2,'h').format('HH:mm:ss')
+  let now = moment().format('HH:mm')
+  let sunrise = moment.parseZone(`${props.sunrise.sunrise}`).local().format('HH:mm')
+  let midMorning = moment(sunrise, 'HH:mm:ss').add(2,'h').format('HH:mm')
+  let sunset = moment.parseZone(`${props.sunrise.sunset}`).local().format('HH:mm')
+  let lateAfternoon = moment(sunset, 'HH:mm:ss').subtract(2,'h').format('HH:mm')
   switch(true){
     case (sunrise < now && now < midMorning):
-      message = "rise and shine baby";
+      message = "rise and shine";
       break;
     case (midMorning < now && now < lateAfternoon):
-      message = "you better be doing productive shit rn";
+      message = "be productive rn";
       break;
     case (lateAfternoon < now && now < sunset):
-      message = "probably should consider eating dinner";
+      message = "probably should eat dinner";
       break;
     default:
-      message = "it's night now. time to shine"
+      message = " night is the time to shine"
   }
 
 
   return(
     <div className='header'>
-      <h1>Weather be Weather</h1>
+      <h1>Weather App</h1>
       <section className='sundial'>
-        sunrise: {sunrise} sunset: {sunset} currently: {now}
-        <br/>{message}
+        <li>sunrise: {sunrise}</li>
+        <li>sunset: {sunset}</li>
+        <li>currently: {now}</li>
+        <li>{message}</li>
       </section>
       <section className='currently'>
-        {props.weather ? <div>Current Weather for <strong>{props.weather.city} </strong> Temperature: {props.weather.temp}&#176;F Currently: {props.weather.currently} </div> : <div>LOADING</div> }
+        {props.weather ? <div><strong>{props.weather.city}</strong> <br/> currently {props.weather.temp}&#176;F & {props.weather.currently} </div> : <div>LOADING</div> }
         <Link to="/forecast">
           <button onClick={()=>props.changeFeatureCity(props.weather)}>
-            View Extended Forecast >>
+            Extended Forecast
           </button>
         </Link>
       </section>
