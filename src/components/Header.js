@@ -36,7 +36,8 @@ const Header = (props) => {
         <li>{message}</li>
       </section>
       <section className='currently'>
-        {props.weather ? <div><strong>{props.weather.city}</strong> <br/> currently {props.weather.temp}&#176;F & {props.weather.currently} </div> : <div>LOADING</div> }
+        {props.weather ? <div><strong>{props.weather.city}</strong>
+        <br/> currently {props.weather.temp}&#176;F & {props.weather.currently} <br/><img src={props.weather.icon}/></div> : <div>LOADING</div>}
         <Link to="/forecast">
           <button onClick={()=>props.changeFeatureCity(props.weather)}>
             Extended Forecast
@@ -44,6 +45,7 @@ const Header = (props) => {
           </button>
         </Link>
       </section>
+
     </div>
   )
 }

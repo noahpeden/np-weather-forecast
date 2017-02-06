@@ -6,7 +6,8 @@ const currentWeatherReducer = (state={}, action) => {
         city: action.city,
         currently: action.currently,
         extended: action.extended,
-        hourly: action.hourly
+        hourly: action.hourly,
+        icon: action.icon
       }
       return weather
     default:

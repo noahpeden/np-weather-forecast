@@ -5,7 +5,8 @@ export const currentWeather = (json) => {
     temp: json.current_observation.temp_f,
     currently: json.current_observation.weather,
     extended: json.forecast.simpleforecast.forecastday,
-    hourly: json.hourly_forecast
+    hourly: json.hourly_forecast,
+    icon: json.current_observation.icon_url
   }
 }
 
