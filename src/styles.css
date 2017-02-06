@@ -131,6 +131,11 @@ button:hover {
   margin: 5px;
   flex-direction: column;
 }
+
+.forecast-card img{
+  height: auto;
+  width: 50px;
+}
 /*settings page*/
 .city-settings{
   display: flex;

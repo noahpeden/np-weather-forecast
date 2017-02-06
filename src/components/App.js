@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       zip: '',
       pressed: [],
-      secretCode: [38,38,40,40,37,39,37,39,66,65],
+      secretCode: [38,38,40,40,37,39,37,39],
       newman: false,
     }
   }

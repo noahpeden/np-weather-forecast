@@ -20,6 +20,8 @@ export default class Forecast extends React.Component{
         <div className='forecast-card' key={index}>
 
           <h3>{this.props.featureCity.hourly[index].FCTTIME.weekday_name} {this.props.featureCity.hourly[index].FCTTIME.civil}</h3>
+          <img src={this.props.featureCity.hourly[index].icon_url}/>
+
           <p>{this.props.featureCity.hourly[index].condition} &  {this.props.featureCity.hourly[index].temp.english}F</p>
         </div>
       )
@@ -31,6 +33,7 @@ export default class Forecast extends React.Component{
         <div className='forecast-card' key={index}>
 
           <h3>{this.props.featureCity.extended[index].date.weekday}</h3>
+          <img src={this.props.featureCity.extended[index].icon_url}/>
           {this.props.featureCity.extended[index].conditions} with a high of {this.props.featureCity.extended[index].high.fahrenheit} and low of {this.props.featureCity.extended[index].low.fahrenheit}.
         </div>
       )
