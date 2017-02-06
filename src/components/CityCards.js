@@ -6,7 +6,7 @@ const CityCards = (props) => {
 
  const cities = props.cityWeather.map((city)=>{
       return (
-        <div className='city-card'>
+        <div className='city-card' key={city.id}>
           <ul>
             City: {city.city}
             <li>Temperature: {city.temp}</li>
