@@ -4,6 +4,7 @@ import moment from 'moment'
 
 const Header = (props) => {
   let message = ""
+
   let now = moment().format('HH:mm')
   let sunrise = moment.parseZone(`${props.sunrise.sunrise}`).local().format('HH:mm')
   let midMorning = moment(sunrise, 'HH:mm:ss').add(2,'h').format('HH:mm')
@@ -26,6 +27,7 @@ const Header = (props) => {
 
   return(
     <div className='header'>
+
       <h1>Weather App</h1>
       <section className='sundial'>
         <li>sunrise: {sunrise}</li>
@@ -38,6 +40,7 @@ const Header = (props) => {
         <Link to="/forecast">
           <button onClick={()=>props.changeFeatureCity(props.weather)}>
             Extended Forecast
+
           </button>
         </Link>
       </section>

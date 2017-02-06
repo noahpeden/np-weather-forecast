@@ -1,16 +1,16 @@
 import * as actions from '../../src/actions'
 
 describe('actions', ()=> {
-  it.skip('should create an action', () => {
+  it('should create an action', () => {
     expect(true).toEqual(true)
   });
-  it.skip('should current Weather', ()=> {
+  it('should current Weather', ()=> {
     let city= "DENVER"
     const temp= 'hello'
     const currently= 'hello'
     const extended= 'hello'
     const hourly= 'hello'
-    
+
     const expectedReturn = {
       type:'CURRENT_WEATHER',
       city,
@@ -21,5 +21,13 @@ describe('actions', ()=> {
     }
     expect(actions.currentWeather()).toEqual(expectedReturn);
   })
+  it('should create an action to remove pin', () => {
+  const index = []
+  const expectedAction = {
+   type: 'REMOVE_CITY',
+   index: []
+  }
+  expect(actions.removeCity(index)).toEqual(expectedAction)
+})
 
  })
