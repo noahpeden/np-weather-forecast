@@ -43,7 +43,7 @@ export default class Forecast extends React.Component{
       <div className='extended-forecast'>
         <HeaderContainer />
         <section className='forecast-header'>
-          <h1>
+          <h1 className="your-forecast">
             Your {this.props.featureCity.city} {this.state.showHourly ? "Hourly" : "Extended"} Forecast
           </h1>
           <button

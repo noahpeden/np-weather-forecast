@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   getWeather(weatherURL){
-
     fetch(weatherURL)
     .then((response) => {
       return response.json() })
@@ -61,27 +60,10 @@ class App extends Component {
       }
     }
 
-    konami(e){
-      let newArray = this.state.pressed;
-      newArray.push(e.keyCode)
-      newArray.splice(-this.state.secretCode.length -1, newArray.length - this.state.secretCode.length)
-      if(newArray.toString() === this.state.secretCode.toString()){
-        this.setState({newman: !this.state.newman})
-      }
-      this.setState({pushed: newArray});
-    }
-
     render(){
       return (
-        <div tabIndex="0" className="konami" onKeyUp={(e)=>this.konami(e)}>
-
-          {this.state.newman ?
-            <img src="https://media.giphy.com/media/uOAXDA7ZeJJzW/giphy.gif" className="newman"/>
-            : null
-          }
-
+        <div>
           <HeaderContainer />
-
           <section className="new-city">
             <input  value={this.state.zip}
                     onChange={e => this.setState({zip: e.target.value})}
@@ -90,11 +72,9 @@ class App extends Component {
             <button onClick={() => this.pinCity()}>
               Pin New City
             </button>
+            <Link to="/settings" className='edit-cities'><button>Edit Cities</button></Link>
           </section>
-
           <CityCardsContainer />
-          <Link to="/settings" className='edit-cities'>Edit Pinned Cities >> </Link>
-
         </div>
       )
     }

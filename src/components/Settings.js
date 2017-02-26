@@ -12,7 +12,6 @@ constructor(){
 render(){
     const cities = this.props.cityWeather.map((city, index)=>{
          return (
-
            <div className='edit-city' key={city.id}>
 
              <ul>

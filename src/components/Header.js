@@ -12,36 +12,34 @@ const Header = (props) => {
   let lateAfternoon = moment(sunset, 'HH:mm:ss').subtract(2,'h').format('HH:mm')
   switch(true){
     case (sunrise < now && now < midMorning):
-      message = "rise and shine";
+      message = "Sunrise";
       break;
     case (midMorning < now && now < lateAfternoon):
-      message = "be productive rn";
+      message = "Morning";
       break;
     case (lateAfternoon < now && now < sunset):
-      message = "probably should eat dinner";
+      message = "Afternoon";
       break;
     default:
-      message = " night is the time to shine"
+      message = "Evening"
   }
 
 
   return(
     <div className='header'>
-
-      <h1>Weather App</h1>
-      <section className='sundial'>
+      <h1>Redux Weather<br />Forecast</h1>
+      <ul className='sundial'>
         <li>sunrise: {sunrise}</li>
         <li>sunset: {sunset}</li>
         <li>currently: {now}</li>
         <li>{message}</li>
-      </section>
+      </ul>
       <section className='currently'>
-        {props.weather ? <div><strong>{props.weather.city}</strong>
+        {props.weather ? <div className="current-weather"><strong>{props.weather.city}</strong>
         <br/> currently {props.weather.temp}&#176;F & {props.weather.currently} <br/><img src={props.weather.icon}/></div> : <div>LOADING</div>}
         <Link to="/forecast">
-          <button onClick={()=>props.changeFeatureCity(props.weather)}>
-            Extended Forecast
-
+          <button onClick={()=>props.changeFeatureCity(props.weather)} className="header-btn">
+            Current Extended Forecast
           </button>
         </Link>
       </section>
